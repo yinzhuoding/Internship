@@ -1,0 +1,8 @@
+"Location","Target","Point Est","Actual Value","Log score","Absolute error"
+"US National","Start week","47","50","-1.75090845493291","3"
+"US National","Peak week","52","52","-3.0331997042103","0"
+"US National","Peak intensity","4","3.37442","-0.984727149767267","0.62558"
+"US National","Forecast","2.1","1.69128","2.22044604925031e-16","0.40872"
+"US National","Forecast","2.5","1.9607","-0.0690324929061049","0.5393"
+"US National","Forecast","3","1.86459","-0.709366677360667","1.13541"
+"US National","Forecast","3.4","1.98632","-0.734555633675665","1.41368"
