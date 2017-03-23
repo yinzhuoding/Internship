@@ -1,0 +1,2 @@
+We demonstrate the capabilities of the package using a single military installation and a single, short, MCMC chain. We first show the profile of the base (along with two other parameters that have been suggested to be important for influenza dynamics: the school schedule and specific humidity) and then display the results of the fit (Epi profile and cumulative attack rate) and the model fit parameters and their statistics.
+

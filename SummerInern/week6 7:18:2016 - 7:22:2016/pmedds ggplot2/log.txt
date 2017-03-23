@@ -1,0 +1,34 @@
+
+ PDF Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.pdf
+
+ PNG Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.png
+
+
+ PDF Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.pdf
+
+ PNG Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.png
+
+
+ PDF Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.pdf
+
+ PNG Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.png
+
+
+ PDF Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.pdf
+
+ PNG Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.png
+
+ Created /Users/yzding/Documents/yinzhuo/SummerInern/week7 7:25:2016 - 7:29:2016/pmedds ggplot2/outputDirectory for all the Data of MCMC chain
+
+
+ PDF Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week7 7:25:2016 - 7:29:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.pdf
+
+ PNG Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week7 7:25:2016 - 7:29:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.png
+
+
+ PDF Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week7 7:25:2016 - 7:29:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.pdf
+
+ PNG Plot of MCMC Profiles written to: /Users/yzding/Documents/yinzhuo/SummerInern/week7 7:25:2016 - 7:29:2016/pmedds ggplot2/output/plot-CDC_2015_reg1_model5.png
+
+ Plotting Results to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/W_T_.pdf
+

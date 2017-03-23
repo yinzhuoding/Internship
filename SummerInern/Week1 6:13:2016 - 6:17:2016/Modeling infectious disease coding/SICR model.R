@@ -1,0 +1,38 @@
+## It is the SICR which includes a carrier class.
+
+## Parameters:
+# miu: Per captia death rate, and the population level birth rate;
+# beta: Product of contact rates and transmission probability;
+# gamma: Recovery Rate;
+# epsilon: Proportion reduction in transmission from carriers compared to standard infectious individuals;
+# q: Proportion of infected individuals that become carriers rather than fully recover;
+# Gamma: Recovery rate associated with carriers;
+# S: Proportion of the population that are susceptible;
+# I: Proportion of the population that are infectious;
+# C: Proportion of the population that are carriers;
+# R: Proportion of the population that are recovered.
+
+library(deSolve)
+
+SICR = function(time, state, pars) {
+  with(as.list(c(state,pars)), {
+    dS = miu - (beta * I0 + epsilon * beta * C0) * S0 - miu * S0
+    dI = (beta * I0 + epsilon * beta * C0) * S0 - (miu + gamma) * I0
+    dC = gamma * q * I0 - Gamma * C0 - miu * C0
+    dR = gamma * (1 - q) * I0 + Gamma * C0 - miu * R0
+    return(list(c(dS,dI,dC,dR)))
+  })
+}
+yini = c(S0 = 0.2,I0 = 1e-4,C0 = 1e-3, R0 = 1-0.2-1e-4-1e-3)
+pars = c(miu = 1/(50*365), beta = 0.2,gamma = 0.01, epsilon = 0.1, q = 0.4, Gamma = 0.001)                                                         
+times = seq(0,700,by = 1)
+
+
+out = ode(func = SICR, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SEIR Model",
+        lwd = 2, lty = 1, col = 2:5)
+legend(60,0.5,c("Susceptibles","Infecteds","Carriers","Recovereds"),pch = 1, col = 2:5, bty = "n")
+

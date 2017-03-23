@@ -1,0 +1,10 @@
+ Plotting Results to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/W_T_Vietnam.pdf
+
+ Plotting Results to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/W_T_China.pdf
+
+
+
+ Plotting Results to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/W_T_Vietnam.pdf
+
+ Plotting Results to: /Users/yzding/Documents/yinzhuo/SummerInern/week6 7:18:2016 - 7:22:2016/pmedds ggplot2/output/W_T_Vietnam.pdf
+

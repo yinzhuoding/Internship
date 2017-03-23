@@ -1,0 +1,279 @@
+install.packages("Rcpp")
+install.packages("coda")
+install.packages("Formula")
+install.packages("Hmisc")
+install.packages("abind")
+q()
+rm(list=ls())#
+#
+## Load the package#
+require(febris)#
+#
+## If you would like to see what data comes with the febris package use:#
+## data(package="febris")#
+## choose the base number: between 1-50. default is 1#
+###
+ibase = 1#
+#
+## choose the model - default is paper 2 which is model 5#
+###
+#
+# Model options:#
+# 1 - school and specific humidity term#
+# 2 - specific humidity only#
+# 3 - school only#
+# 4 - R(t)=R0 fixed in time#
+# 5 - Paper 2 model#
+imodel <- 5#
+#
+## set Tg in days. Code will convert to weeks. Default is 2.6 days#
+###
+Tg <- 2.6#
+#
+###
+## Set the number of MCMC steps. Default is 1e6 #
+###
+nMCMC <- 1e4#
+#
+###
+##Set the number of times to save the MCMC chain parameters, must be equal or smaller than nMCMC. Default is 1e4#
+###
+nlines <- 1e3#
+#
+###
+## number of MCMC chains. Default is 10#
+###
+reals <- 5#
+#
+###
+## debug - For debug mode.  Default is FALSE.#
+## verbose - controls the amount of printing and plotting.  Default is FALSE.#
+## plot - TRUE or FALSE.  Should really always be set to true#
+###
+#
+debug = FALSE#
+verbose = FALSE#
+plot = TRUE#
+#
+###
+## device for plotting currrently supporting only X11 and pdf. Default is X11#
+###
+device = "X11"
+iseed = 123456 #NULL#
+#
+# all the job is done here including writing R object data files - one per chain in a sub-directory called 'data'#
+#
+out <- runModel(ibase=ibase,imodel=imodel,Tg=Tg,nMCMC=nMCMC,nlines=nlines,reals=reals,iseed=iseed,debug=debug,verbose=verbose,plot=plot,device=device)
+q()
+require("coda")
+help(summary.mcmc)
+help(summary)
+rm(list=ls())#
+#
+## turn all previous graphics windows off#
+graphics.off()#
+#
+## Load the package#
+require(pmedds.core)#
+#
+## If you would like to see what data comes with the pmedds.core package use:#
+## data(package="pmedds.core")#
+#
+## choose the base number: between 1-50 default is 1#
+###
+ibase = 1#
+#
+## choose the model - default is paper 2 which is model 5#
+###
+#
+# Model options:#
+# 1 - R(t) is R0 times a school and specific humidity terms#
+# 2 - R(t) depends only on the specific humidity#
+# 3 - R(t) depends only on the school schedule#
+# 4 - R(t)==R0 fixed in time#
+# 5 - Paper 2 model#
+imodel <- 5#
+#
+## set Tg in days. Code will convert to weeks. Default is 2.6 days#
+###
+Tg <- 2.6#
+#
+## Set the number of MCMC steps. Default is 1e6 but that may take too long#
+###
+nMCMC <- 1e3#
+#
+##Set the number of times to save the MCMC chain parameters, must be equal or smaller than nMCMC. Default is 1e4,but for shorter chains it is OK to set it lower#
+###
+nlines <- 1e2#
+#
+## number of MCMC chains to run, default is 5#
+###
+reals <- 1#
+#
+## debug - For debug mode.  Default is FALSE.#
+## verbose - controls the amount of printing and plotting.  Default is FALSE.#
+## plot - TRUE or FALSE.  Default is TRUE. Should really always be set to true#
+###
+#
+debug = FALSE#
+verbose = FALSE#
+plot = TRUE#
+#
+## device for plotting (character) currrently supporting only X11 and pdf. Default is X11. When running from command line set to pdf#
+###
+device = "pdf"#
+#
+## iseed integer - seed for random number generator.  If set to NULL the R code will seed it.  To reproduce your results results set it here#
+## #
+#
+iseed = NULL#
+#
+# all the work is done here including writing R object data files - one per chain in a sub-directory called 'data'#
+#
+out <- runModel(ibase=ibase,imodel=imodel,Tg=Tg,nMCMC=nMCMC,nlines=nlines,reals=reals,iseed=iseed,debug=debug,verbose=verbose,plot=plot,device=device)
+names(out)
+summary(out$mcmc)
+# pack all the parameters to a list#
+	ptab <- list(base=ibase,model=imodel,Tg=Tg,nMCMC=nMCMC,nlines=nlines,reals=reals,seed=iseed,debug=debug,verbose=verbose,plot=plot,device=device)#
+	require("coda")#
+	# first step is to read the data in#
+	mydata <- read.febris()#
+	epi_data     <- mydata$epi#
+	school_data  <- mydata$school#
+	sh_data      <- mydata$sh#
+	pop_data     <- mydata$pop#
+	iverbose <- 0#
+	if (ptab$verbose == TRUE) iverbose=1#
+#
+	if (ptab$debug == TRUE) {#
+		febris.debug(epi_data=epi_data,sh_data=sh_data,school_data=school_data,pop_data=pop_data,ibase=ptab$base,verbose=ptab$verbose,device.name=ptab$device)#
+	}#
+	# set up all the parameters for the model and chains using the information given by the user#
+	model <- setup(ptab=ptab,epi_data=epi_data,sh_data=sh_data,school_data=school_data,pop_data=pop_data,seed=ptab$seed)#
+    # plot the base EPI profile along with SH and school data #
+    plot.base(zipname = model$zip,week=model$week, epi=model$epi,sh=model$sh,school=model$school,device.name=ptab$device)#
+	# set up a matrix for time series of the results#
+	dsdt <- matrix(0.0,nr=model$nweeks,nc=model$reals)	#
+	rmat <- matrix(0.0,nr=model$nweeks,nc=model$reals)	#
+	# prepare a list where the MCMC objects will reside#
+	mcmclist=list()#
+	for (ix in 1: model$reals) {#
+#
+	cat("\n Running MCMC chain Number ",ix,"\n\n")#
+	model$base_ps <- setup.ini(min=model$par.min,max=model$par.max,default=model$param.default,vecopt=model$vecopt,vecnames=model$vecnames)$base_ps#
+    # calculate initial guess there is no real need for this #
+	out <- .Fortran("subprop",y=as.double(model$epi),sh=as.double(model$sh),school=as.double(model$school),dt=as.double(model$dt),nstep=as.integer(model$nstep),nweeks=as.integer(model$nweeks),param=as.double(model$base_ps),nparam = as.integer(length(model$base_ps)),pois=as.double(model$pois),dsdt=as.double(model$dsdt),rvec=as.double(model$rvec))
+}
+sol <-.Fortran("mcmc",data=as.double(model$epi),sh=as.double(model$sh),school=as.double(model$school),nweeks=as.integer(model$nweeks),nparam=as.integer(length(model$base_ps)),dt=as.double(model$dt), nstep=as.integer(model$nstep),nsamps=as.integer(model$nMCMC),logbase=as.integer(model$logbase),pmax=as.double(model$par.max),pmin=as.double(model$par.min),ilog=as.integer(model$logvec),step=as.double(model$par.dx),imask=as.integer(model$imask),pval=as.double(model$base_ps),iupdate=as.integer(model$iupdate),ithin=as.integer(model$ithin),iseed=as.integer(model$iseed * ix),solbest=as.double(model$dsdt),rvec=as.double(model$rvec),tab=as.double(model$tab),iverbose=as.integer(iverbose),accept=model$accept)#
+#
+## keep track of the best profile for this chain#
+	dsdt[,ix] <- sol$solbest#
+	rmat[,ix] <- sol$rvec	#
+## call the routine that will write an R object data file for this chain and report statistics on chain#
+## the statistics is currently just printed to the screen
+tab=sol$tab
+model=5
+ireal=1
+ix=1
+accept=sol$accept
+tab <- matrix(tab,nc=(length(model$base_ps)+1))#
+	colnames(tab) <- c(model$vecnames,"negLLK")#
+	# how many steps to burn - here we set it to half which is very rigid#
+	iburn <- model$nMCMC/2#
+	mcmc <- mcmc(data=tab,start=iburn,end=model$nMCMC,thin=model$ithin)
+iburn=1e4/2
+ithin
+ithin=10
+mcmc <- mcmc(data=tab=start=iburn,end=1e4,thin=ithin)
+mcmc <- mcmc(data=tab,start=iburn,end=1e4,thin=ithin)
+dim(tab)
+length(tab)
+tab <- matrix(tab,nc=13)
+mcmc <- mcmc(data=tab,start=iburn,end=1e4,thin=ithin)
+dim(tab)
+nMCMC=1e3
+mcmc <- mcmc(data=tab,start=iburn,end=1e3,thin=ithin)
+iburn
+iburn=nMCMC/2
+mcmc <- mcmc(data=tab,start=iburn,end=1e3,thin=ithin)
+mcmc.stat <- summary(mcmc,quantiles=c(0.05,0.25,0.5,0.75,0.95),digits=4)
+names(mcmc.stat)
+mcmc.stat$statistics
+rownames(mcmc.stat$statistics) <- c(vecnames,"negLLK")
+vecnames <- c("R0min","deltaR","aparam","pC","Baseline","Tg","N","t0","alpha","delta","ts","dur")
+rownames(mcmc.stat$statistics) <- c(vecnames,"negLLK")
+mcmc.stat$statistics
+names(mcmc.stat)
+mcmc.summary <- summary(mcmc,quantiles=c(0.05,0.25,0.5,0.75,0.95),digits=4)#
+    mcmc.quantiles <- mcmc.summary$quantiles#
+    mcmc.stats     <- mcmc.summary$statistics#
+    rownames(mcmc.quantiles) <- c(model$vecnames,"negLLK")#
+    rownames(mcmc.stats)     <- c(model$vecnames,"negLLK")
+rownames(mcmc.quantiles) <- c(vecnames,"negLLK")
+rownames(mcmc.stats) <- c(vecnames,"negLLK")
+mcmc.quantiles
+mcmc.stats
+rm(list=ls())#
+#
+## turn all previous graphics windows off#
+graphics.off()#
+#
+## Load the package#
+require(pmedds.core)#
+#
+## If you would like to see what data comes with the pmedds.core package use:#
+## data(package="pmedds.core")#
+#
+## choose the base number: between 1-50 default is 1#
+###
+ibase = 1#
+#
+## choose the model - default is paper 2 which is model 5#
+###
+#
+# Model options:#
+# 1 - R(t) is R0 times a school and specific humidity terms#
+# 2 - R(t) depends only on the specific humidity#
+# 3 - R(t) depends only on the school schedule#
+# 4 - R(t)==R0 fixed in time#
+# 5 - Paper 2 model#
+imodel <- 5#
+#
+## set Tg in days. Code will convert to weeks. Default is 2.6 days#
+###
+Tg <- 2.6#
+#
+## Set the number of MCMC steps. Default is 1e6 but that may take too long#
+###
+nMCMC <- 1e3#
+#
+##Set the number of times to save the MCMC chain parameters, must be equal or smaller than nMCMC. Default is 1e4,but for shorter chains it is OK to set it lower#
+###
+nlines <- 1e2#
+#
+## number of MCMC chains to run, default is 5#
+###
+reals <- 1#
+#
+## debug - For debug mode.  Default is FALSE.#
+## verbose - controls the amount of printing and plotting.  Default is FALSE.#
+## plot - TRUE or FALSE.  Default is TRUE. Should really always be set to true#
+###
+#
+debug = FALSE#
+verbose = FALSE#
+plot = TRUE#
+#
+## device for plotting (character) currrently supporting only X11 and pdf. Default is X11. When running from command line set to pdf#
+###
+device = "pdf"#
+#
+## iseed integer - seed for random number generator.  If set to NULL the R code will seed it.  To reproduce your results results set it here#
+## #
+#
+iseed = NULL#
+#
+# all the work is done here including writing R object data files - one per chain in a sub-directory called 'data'#
+#
+out <- runModel(ibase=ibase,imodel=imodel,Tg=Tg,nMCMC=nMCMC,nlines=nlines,reals=reals,iseed=iseed,debug=debug,verbose=verbose,plot=plot,device=device)
+help(write.csv)

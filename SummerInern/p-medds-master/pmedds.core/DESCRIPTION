@@ -1,0 +1,15 @@
+Package: pmedds.core
+Type: Package
+Title: P-MEDDS: Prototype-Military Epidemic Disease Dynamics System)
+Version: 1.0
+Date: 2014-11-28
+Author: Predictive Science Inc.
+Maintainer: <mbennun@predsci.com>
+Depends: coda, Rcpp, RSQLite, tools, cdcfluview
+Requires: Sweave
+SystemRequirements: 
+NeedsCompilation: yes
+LazyData: yes
+Description: P-MEDDS: A tool for modeling infectious disease dynamics in military and civilian populations.  
+License: Currently Used by PSI and Leidos Only
+Repository: https://github.com/predsci/p-medds

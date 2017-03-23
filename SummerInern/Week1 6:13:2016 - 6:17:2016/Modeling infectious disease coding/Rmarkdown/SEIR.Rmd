@@ -1,0 +1,44 @@
+---
+title: "SEIR epidemic with equal births and deaths"
+output: word_document
+---
+
+```{r cars}
+## It is the SEIR epidemic with equal births and deaths.
+## Note we no-longer explicitly model the recovered class.
+
+## Parameters:
+# miu: Per captia death rate, and the population level birth rate;
+# beta: Product of contact rates and transmission probability;
+# gamma: Recovery Rate;
+# sigma: The rate at which individuals move from the exposed to the infectious class;
+# S: Proportion of the population that are susceptible;
+# E: Proportion of the population that are exposed;
+# I: Proportion of the population that are infectious;
+# R: Proportion of the population that are recovered.
+
+library(deSolve)
+
+SEIR = function(time, state, pars) {
+  with(as.list(c(state,pars)), {
+    dS = miu - (beta * I0 + miu) * S0
+    dE = beta * S0 * I0 - (miu + sigma) * E0
+    dI = sigma * E0 - (miu + gamma) * I0
+    dR = gamma * I0 - miu * R0
+    return(list(c(dS,dE,dI,dR)))
+  })
+}
+yini = c(S0 = 0.8,E0 = 1e-4,I0 = 1e-4,R0 = 1-0.8-2e-4)
+pars = c(miu = 1/(70*365), beta = 1.4247,gamma = 0.14286, sigma = 0.07143)                                                         
+times = seq(0,100,by = 1)
+
+
+out = ode(func = SEIR, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SEIR Model",
+        lwd = 2, lty = 1, col = 2:5)
+legend(60,0.5,c("Susceptibles","Exposeds","Infecteds","Recovereds"),pch = 1, col = 2:5, bty = "n")
+```
+

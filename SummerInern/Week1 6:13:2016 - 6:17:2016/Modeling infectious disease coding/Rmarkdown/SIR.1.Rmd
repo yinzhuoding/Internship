@@ -1,0 +1,38 @@
+---
+title: "SIR model without demography"
+output: word_document
+---
+```{r cars}
+## SIR model without demography
+## It is the simple SIR epidemic without births or deaths
+
+## Parameters:
+# beta: Product of contact rates and transmission probability;
+# gamma: Recovery Rate;
+# S: Proportion of the population that are susceptible;
+# I: Proportion of the population that are infectious;
+# R: Proportion of the population that are recovered.
+library(deSolve)
+
+SIR = function(time, state, pars) {
+  with(as.list(c(state,pars)), {
+    dS = -beta * S0 * I0
+    dI = beta * S0 * I0 - gamma * I0
+    dR = gamma * I0
+    return(list(c(dS,dI,dR)))
+  })
+}
+yini = c(S0 = 1-1e-6,I0 = 1e-6,R0 = 0)
+pars = c(beta = 1.4247,gamma = 0.14286)                                                         
+times = seq(0,70,by = 1)
+
+
+out = ode(func = SIR, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model",
+        lwd = 2, lty = 1, col = 2:4)
+legend(40,0.5,c("Susceptibles","Infecteds","Recovereds"),pch = 1, col = 2:4, bty = "n")
+```
+

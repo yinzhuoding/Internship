@@ -1,0 +1,71 @@
+---
+title: "SIR model with mortality(density-dependent)"
+output: word_document
+---
+
+
+```{r cars}
+## It is the SIR model with a probability of mortality, and uneuqal births and deaths.
+## This code assumes Density-Dependent Transmission
+
+## Parameters:
+# rho: The mortality probability;
+# nu: The population level birth rate;
+# miu: Per captia death rate, and the population level birth rate;
+# beta: Product of contact rates and transmission probability;
+# gamma: Recovery Rate;
+# X: The number or density of susceptible individuals;
+# Y: The number or density of infectious individuals;
+# Z: The number or density of recovered individuals.
+library(deSolve)
+
+SIR.mort = function(time, state, pars) {
+  with(as.list(c(state,pars)), {
+    dX = nu - beta * X0 * Y0 - miu * X0
+    dY = beta * X0 * Y0 - (gamma+miu)/(1-rho) * Y0
+    dZ = gamma * Y0 - miu * Z0
+    return(list(c(dX,dY,dZ)))
+  })
+}
+
+# condition 1
+yini = c(X0 = 0.2,Y0 = 1e-4,Z0 = 1-0.2-1e-4)
+pars = c(rho = 0.5, nu = 1/(70*365), miu = 1/(70*365), beta = 520/365,gamma = 1/7)                                                         
+times = seq(0,1e5,by = 1)
+
+
+out = ode(func = SIR.mort, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model with a probability of mortality",
+        lwd = 2, lty = 1, col = 2:4)
+legend(40,0.5,c("Susceptibles","Infecteds","Recovereds"), pch = 1, col = 2:4,bty = "n")
+
+# condition 2
+yini = c(X0 = 0.9,Y0 = 1e-4,Z0 = 1-0.9-1e-4)
+pars = c(rho = 0.5, nu = 1/(70*365), miu = 1/(70*365), beta = 520/365,gamma = 1/7)                                                         
+times = seq(0,70,by = 1)
+
+out = ode(func = SIR.mort, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model with a probability of mortality",
+        lwd = 2, lty = 1, col = 2:4)
+legend(40,0.5,c("Susceptibles","Infecteds","Recovereds"), pch = 1, col = 2:4,bty = "n")
+
+# condition 3
+yini = c(X0 = 0.9,Y0 = 1e-4,Z0 = 1-0.9-1e-4)
+pars = c(rho = 0.5, nu = 1/(70*365), miu = 1/(70*365), beta = 520/365,gamma = 1/7)                                                         
+times = seq(0,1e5,by = 1)
+
+out = ode(func = SIR.mort, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model with a probability of mortality",
+        lwd = 2, lty = 1, col = 2:4)
+legend(6e4,0.8,c("Susceptibles","Infecteds","Recovereds"), pch = 1, col = 2:4,bty = "n")
+```
+

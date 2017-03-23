@@ -1,0 +1,73 @@
+{\it Data}
+
+We extended our previous analysis of the Defense Medical Surveillance System (DMSS) data to characterize the relationship between ILI cases and severe influenza at the level of an individual military population, across the duration of the 2009 pandemic.  We extracted 21,573 clinical influenza episodes between April 1 2009 and June 30 2010 (using the most specific available definition of ILI \cite{marsden2007code,Riley:2013kz}). Within these episodes, 315 cases were coded as severe influenza (ICD-9 code 487). Each episode was assigned to a military population by the zip code (MPZs) based on the clinic in which the episode occurred. We used previous estimates of the effective population size for each MPZ \cite{Riley:2013kz}. In our analysis, we focus on the top-50 installations in terms of total number of ILI cases. These captured 13,794 episodes of clinical influenza (64\%) and 254 cases of severe influenza (81\%). 
+
+We used the 5-digit zip code of the reporting clinic as a proxy with which to define military installations: we do not explicitly represent military installations or bases, rather, we assume that case reports from the same zip code are, effectively, from the same population.
+ 
+{\it Model }
+
+We used a deterministic SIR model with a constant background rate of clinical report (not driven by influenza infection). We determined the joint posterior distribution for the model parameters using a Metropolis-Hastings Markov Chain Monte Carlo (MCMC) procedure \cite{gilks96a}.  For each base we simulate three MCMC chains each with $10^8$ steps and a burn time of  $2.5 \times 10^7$ steps. At each step a new set of parameter values is sampled from a log-uniform distribution (the minimum and maximum allowed values for the parameters are summarized in Table S1). Using this set of candidate parameters we generate a profile for the base and calculate the log-likelihood of the profile. The values of the new and previous log-likelihood are used in a standard rejection method to determine if the move is accepted or rejected.  Our MCMC chains have a typical acceptance rate of 15-30\% and an effective sample size that is in the 200-2000 range (depending on the base profile and the parameter). Since the parameters in the model are independently fitted to each of the military bases, and since each MCMC chain is run independently the computational load can be equally divided on all available nodes given the number of military bases the user wants to model and the number of MCMC chains per installation.
+
+At each step in the MCMC chain the following set of three SIR equations is used:
+
+\begin{equation}
+\frac{dS}{dt} = - \frac{\beta (t) S I}{N_{total}},
+\end{equation}
+
+\begin{equation}
+\frac{dI}{dt} =  \frac{\beta (t) S I}{N_{total}} - \frac{I}{T_g},
+\end{equation}
+
+\begin{equation}
+%\beta (t) = (1 + \alpha(t)) \beta_1
+\beta(t) = \left\{ \begin{array}{ll}
+\beta_1 & \mbox{if $t_1 \le t < t_1 + \Delta t$} \\
+\beta_0 & \mbox{otherwise}
+\end{array}
+\right.
+\end{equation}
+where 
+$S$ represents the number of susceptible individuals, $I$ is the number of infectious individuals, $R$ is the number of recovered individuals, $N_{total}=S+I+R$ is the total active duty population size at each installation, and $T_g$ is the generation time, or in this model, the average time of infection, which we keep fixed at 2.6 days.  
+
+The incidence ($I_R$) is given by $-\frac{ds}{dt}$, which computationally, is estimated by: 
+
+\begin{equation}
+I_R = p_C \int_{t_s}^{t_f} \frac{\beta(t) S(t) I(t)}{N_{total}} dt
+\end{equation}
+where $p_C$ is the proportion of the infectious active duty population that present themselves to a clinic with ILI-small symptoms, and the integral runs over a week from $t_s$ to $t_f$. 
+
+The time-dependent term, $\beta(t)$, changes from $\beta_A$ to $\beta_B$ at time $t_1$ and returns to $\beta_A$ after an interval $\Delta t$. Equivalently, we allowed $R_A$ to change at some point in time, $t_1$, to a new value $R_B$.
+Intuitively, this definition makes sense if we imagine some mechanism, such as school closures on installations, the deployment of troops, or some other behavior modification to drive the effective contact rate down, and, hence, $R_0$. For purposes of generality, however, we did not impose any requirement that $R_0$ decrease at this time.  
+
+Even during  a pandemic, there are reasons other than influenza infection for cases to present as ILI. Therefore, we also  included a noise term. It was implemented as a constant added to the model output for incidence during the optimization procedure, resulting in a total of seven parameters. 
+
+{\it Computational Details}
+
+For each base we typically simulate between three - five MCMC chains each with $10^8$ steps and a burn time of  $2.5 \times 10^7$ steps. At each step a new set of parameter values is sampled from a log-uniform distribution (the minimum and maximum allowed values for the parameters are summarized in Table S1). Using this set of candidate parameters we generate a profile for the base and calculate the log-likelihood of the profile. The values of the new and previous log-likelihood are used in a standard rejection method to determine if the move is accepted or rejected.  Our MCMC chains have a typical acceptance rate of 15-30\% and an effective sample size that is in the 200-2000 range (depending on the base profile and the parameter). Since the parameters in the model are independently fitted to each of the military bases, and since each MCMC chain is run independently the computational load can be equally divided on all available nodes given the number of military bases the user wants to model and the number of MCMC chains per installation.
+
+
+\begin{table}[H]
+\caption{Minimum and maximum allowed values for the seven parameters used in the study}
+\centering % used for centering table
+\smallskip
+\begin{tabular}{clrrrrr}
+\hline
+Parameter & min & max \\
+\hline
+$R_{0min}$         &         0.5      &      5.0 \\
+$\Delta $         &         -1.0    &        1.0 \\
+$t_0$ (weeks)      &       5.0       &      50.0 \\
+$t_1$ (weeks)       &             1.0       &     30.0 \\
+$\Delta_{t}$ (weeks)     &       0.0    &        30.0 \\
+Baseline, $\phi_N$    &       0.1      &      10.0 \\
+$p_C$          &         0.001   &      1.0 \\
+\hline
+\hline %inserts single line
+\end{tabular}\par
+\label{table:nonlin} % is used to refer this table in the text
+\bigskip
+Caption: {Hypercube parameters.}\end{table}
+
+
+
+

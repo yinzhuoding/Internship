@@ -1,0 +1,7 @@
+load("mcmc-MPZ_2009_23708-1.RData")
+ls
+ls()
+load("mcmc-MPZ_2009_23708-1.RData")
+model
+mcmc
+q()

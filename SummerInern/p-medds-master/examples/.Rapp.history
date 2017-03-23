@@ -1,0 +1,53 @@
+clean all previous data and objects#
+rm(list=ls())#
+#
+## turn all previous graphics windows off#
+graphics.off()#
+#
+## Load the package#
+require(pmedds.core)#
+#
+###
+## If you would like to see what data comes with the pmedds.core package uncomment the following line#
+## data(package="pmedds.core")#
+## Give the job  a name#
+#
+job.name="test.pmedds-wt"#
+###
+## debug - For debug mode.  Default is FALSE.#
+## verbose - controls the amount of printing and plotting.  Default is FALSE.#
+debug   = FALSE#
+verbose = FALSE#
+#
+###
+## device for plotting (character) currrently supporting X11 and pdf. Default is X11. #
+###
+#
+device = "pdf"#
+#
+## #
+## Parameters for the Weibull distribution, these are the values used by Wallinga and Teunis, units are days#
+## shape (beta) and scale (alpha)#
+###
+#
+alpha = 8.4 #
+beta  = 3.8#
+###
+## Select number of realizations 10,000 is reasonable#
+## The code executation time scales with ncases x ncases x number_of_realizations#
+## See below for the number of cases for each country#
+#
+ireal = 1e4
+mycountry="China"
+get.data.wt(mycountry=mycountry)
+load("output/Vietnam.RData")
+ls()
+rm(list=ls())
+load("output/Vietnam.RData")
+ls()
+mydata
+results=load("output/Vietnam.RData")
+names(results)
+results
+zipnames = get.mpz.names()
+zipnames

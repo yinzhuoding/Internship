@@ -1,0 +1,642 @@
+data(package="febris")
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")
+readEpi(ILI.small.pandemic.curves.by.zip5.20090320.20100628)
+summary(febris)
+summary()
+help(febris)
+library(febris)
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")
+readEpi(ILI.small.pandemic.curves.by.zip5.20090320.20100628)
+febris()
+febris
+help(febris)
+febris.readEpi(ILI.small.pandemic.curves.by.zip5.20090320.20100628)
+help(.Call)
+read.Epi(,package="febris")
+readEpi(,package="febris")
+help(source)
+getwd()
+source("../R/utils.R")
+source("../R/util.R")
+ls()
+rm(list=ls())
+require(febris)
+getwd()
+help(data)
+rm(list=ls())
+require(febris)
+ls()
+print.febris(5)
+rm(list=ls())
+library(febris)
+ls()
+library("febris")
+ls()
+print.febris(5)
+data(,package="febris")
+data(package="febris")
+getwd()
+path.to.febris <- getwd()#
+path.to.febris
+rm(list=ls())#
+#
+require(febris)#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(package="febris")#
+#
+path.to.febris <- getwd()#
+index <- pmatch("man",path.to.febris)
+index
+path.to.febris
+is.char(path.to.febris)
+grep("man",path.to.string)
+grep("man",path.to.febris)
+grep(path.to.febris,"man")
+grep("man",path.to.febris)
+index <- gregexpr(pattern="man",path.to.febris)
+index
+index[[1]]
+index[1]
+[[1]]
+path.to.febris
+index[1]
+index <- gregexpr(pattern="man",path.to.febris)[1]
+index
+index$match.length
+match.length(index)
+index[1]
+index[2]
+index[[1]
+]
+index[[1]][1]
+rm(list=ls())#
+#
+require(febris)#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(package="febris")#
+#
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[1][1]#
+substr(path.to.febris,start=index,stop=(index+2))#
+path.to.febris <- paste(path.to.febris,"R",sep="")
+index
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]#
+substr(path.to.febris,start=index,stop=(index+2))#
+path.to.febris <- paste(path.to.febris,"R",sep="")
+path.to.febris
+rm(list=ls())#
+#
+require(febris)#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(package="febris")#
+#
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]#
+path.to.febris <- substr(path.to.febris,start=index,stop=(index+2))#
+path.to.febris <- paste(path.to.febris,"R",sep="")
+path.to.febris
+index
+index+1
+index+2
+path.to.febris <- getwd()
+path.to.febris
+path.to.febris <- substr(path.to.febris,start=index,stop=(index+2))
+path.to.febris
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]#
+path.to.febris <- substr(path.to.febris,start=1,stop=(index-1))
+path.to.febris
+path.to.febris <- paste(path.to.febris,"R",sep="")
+path.to.febris
+rm(list=ls())#
+#
+require(febris)#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(package="febris")#
+#
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]-1#
+path.to.febris <- substr(path.to.febris,start=1,stop=index)#
+source(paste(path.to.febris,"R/util.R",sep=""))
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+ls()
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()
+ls()
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+ls()
+epi_data <- readEpi()
+epi_data
+data(ILI.small.specific.humidity.by.zip5.20090320.20100628,package="febris")#
+raw_sh <- ILI.small.specific.humidity.by.zip5.20090320.20100628#
+#
+sh_week <- raw_sh$week#
+sh_date <- as.Date(raw_sh$date,format="%m/%d/%y")#
+sh      <- sapply(raw_sh[,4:dim(raw_sh)[2]], as.ts) #
+#
+# now need to trim the SH data which extend over a longer period than the ILI#
+nweeks_epi <- length(epi_week)#
+nweeks_sh  <- length(sh_week )#
+sh_week <- sh_week[-(nweeks_epi+1):-(nweeks_sh)]#
+sh_date <- sh_date[-(nweeks_epi+1):-(nweeks_sh)]#
+sh      <- sh[-(nweeks_epi+1):-(nweeks_sh),]#
+#
+date_start <- epi_date[1]#
+date_end   <- epi_date[nweeks_epi]
+names(epi_data)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+epi_data <- readEpi()
+epi_data
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()
+epi_data
+sh_data <- readSH(epi_data$nweeks)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)
+readSH()
+readSH(66)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)
+data(ILI.small.specific.humidity.by.zip5.20090320.20100628,package="febris")#
+raw_sh <- ILI.small.specific.humidity.by.zip5.20090320.20100628#
+#
+sh_week <- raw_sh$week#
+sh_date <- as.Date(raw_sh$date,format="%m/%d/%y")#
+sh      <- sapply(raw_sh[,4:dim(raw_sh)[2]], as.ts) #
+#
+# now need to trim the SH data which extend over a longer period than the ILI#
+#
+nweeks_sh  <- length(sh_week)#
+sh_week <- sh_week[-(nweeks_epi+1):-(nweeks_sh)]#
+sh_date <- sh_date[-(nweeks_epi+1):-(nweeks_sh)]
+nweeks_epi=66
+data(ILI.small.specific.humidity.by.zip5.20090320.20100628,package="febris")#
+raw_sh <- ILI.small.specific.humidity.by.zip5.20090320.20100628#
+#
+sh_week <- raw_sh$week#
+sh_date <- as.Date(raw_sh$date,format="%m/%d/%y")#
+sh      <- sapply(raw_sh[,4:dim(raw_sh)[2]], as.ts) #
+#
+# now need to trim the SH data which extend over a longer period than the ILI#
+#
+nweeks_sh  <- length(sh_week)#
+sh_week <- sh_week[-(nweeks_epi+1):-(nweeks_sh)]#
+sh_date <- sh_date[-(nweeks_epi+1):-(nweeks_sh)]
+sh_date
+sh_week
+sh
+sh      <- sh[-(nweeks_epi+1):-(nweeks_sh),]
+sh
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+readEpi()
+raedSH(epi_curves$nweeks)
+readSH(epi_curves$nweeks)
+readSH(epi_curve$nweeks)
+readSH(epi_data$nweeks)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+readEpi()
+readSH(epi_data$nweeks)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+readSH(epi_data$nweeks)
+start <- epi_data$dates[1]#
+end   <- epi_data$dates[epi_data$nweeks]
+start
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]
+start
+end
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]
+school_data <- readSchool(start,end)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]
+school_data <- readSchool(start,end)
+names(raw_school)
+data(ILI.small.school.closure.by.zip5.20000103.20131230,package="febris")#
+raw_school <- ILI.small.school.closure.by.zip5.20000103.20131230
+names(raw_school)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]
+school_data <- readSchool(start,end)
+school_data
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]
+school_data <- readSchool(start,end)
+school_data
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)
+class(epi_data) <-"epi"
+print.epi(x)
+print.epi(epi_data)
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"
+print.epi(epi_data)
+rm(list=ls())#
+#
+require(febris)#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")#
+#
+raw_epi=ILI.small.pandemic.curves.by.zip5.20090320.20100628#
+class(raw_epi) <- epi#
+#
+epi_data <- readEPI.epi(raw_epi)
+class(raw_epi) <- "epi"
+epi_data <- readEPI.epi(raw_epi)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")#
+#
+raw_epi=ILI.small.pandemic.curves.by.zip5.20090320.20100628#
+class(raw_epi) <- "epi"#
+#
+epi_data <- readEPI.epi(raw_epi)
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]-1#
+path.to.febris <- substr(path.to.febris,start=1,stop=index)#
+#
+# load all the functions in utils.febris#
+#
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")#
+#
+raw_epi=ILI.small.pandemic.curves.by.zip5.20090320.20100628#
+class(raw_epi) <- "epi"#
+#
+epi_data <- readEPI.epi(raw_epi)
+raw_epi
+ILI.small.pandemic.curves.by.zip5.20090320.20100628
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")#
+#
+class(ILI.small.pandemic.curves.by.zip5.20090320.20100628) <- "epi"#
+#
+epi_data <- readEPI.epi(ILI.small.pandemic.curves.by.zip5.20090320.20100628)
+ILI.small.pandemic.curves.by.zip5.20090320.20100628
+rm(list=ls())#
+#
+require(febris)#
+#
+# find the path to the febris package and then to where the R code is#
+#
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]-1#
+path.to.febris <- substr(path.to.febris,start=1,stop=index)#
+#
+# load all the functions in utils.febris#
+#
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+# this just lists all the data sets we have in this package with a short description#
+#
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")
+class(ILI.small.pandemic.curves.by.zip5.20090320.20100628) <- "epi"
+epi_data <- readEPI.epi(ILI.small.pandemic.curves.by.zip5.20090320.20100628)
+rm(list=ls())#
+#
+require(febris)#
+#
+# find the path to the febris package and then to where the R code is#
+#
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]-1#
+path.to.febris <- substr(path.to.febris,start=1,stop=index)#
+#
+# load all the functions in utils.febris#
+#
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+#
+epi_data <- readEPI.epi(8)#
+#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"
+rm(list=ls())#
+#
+require(febris)#
+#
+# find the path to the febris package and then to where the R code is#
+#
+path.to.febris <- getwd()#
+index <- gregexpr(pattern="man",path.to.febris)[[1]][1]-1#
+path.to.febris <- substr(path.to.febris,start=1,stop=index)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"
+print.epi(epi_data)
+epi_data$date
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"
+print.epi(epi_data)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"
+print.epi(epi_data)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+print.epi(epi_data)
+class(epi_data)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"#
+print.data(epi_data,verborse=FALSE)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+class(epi_data)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+print.data(epi_data)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"#
+print.data(epi_data,verborse=FALSE)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"#
+print.data(epi_data,verborse=FALSE)
+print.data(epi_data,verborse=FALSE)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))#
+# read epi curves, specific humidity data and school data #
+#
+epi_data <- readEpi()#
+#
+sh_data <- readSH(epi_data$nweeks)#
+#
+start <- epi_data$date[1]#
+end   <- epi_data$date[epi_data$nweeks]#
+#
+school_data <- readSchool(start,end)#
+#
+class(epi_data) <-"epi"#
+print.data(epi_data,verborse=FALSE)
+class(epi_data) <-"epi"#
+class(sh_data) <- "sh"#
+class(school_data) <- "school"#
+#
+print.data(epi_data,verborse=FALSE)#
+#
+print.data(sh_data,verborse=FALSE)#
+#
+print.data(school_data,verborse=FALSE)
+\
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=wpi_data$week, epi=epi_data[,ibase],sh=sh_data[ibase],school=school_data[ibase])
+names(epi_data)
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+epi_data$curves[,1]
+help(axis)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+school_data$curves[,1]
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+school_data$curves[,1]
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting#
+ibase = 1#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+# for single base plotting - set ibase to the base you want to plot #
+ibase = 11#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+help(par)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting - set ibase to the base you want to plot #
+ibase = 11#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school_data$curves[,ibase])
+# for single base plotting - set ibase to the base you want to plot #
+ibase = 11#
+if (ibase > school_data$nbase) {#
+	school <- rep(NA,school_data$nweeks)#
+} else {#
+	school chool_data$curves[,ibase]#
+}#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school)
+# for single base plotting - set ibase to the base you want to plot #
+ibase = 11#
+if (ibase > school_data$nbase) {#
+	school <- rep(NA,school_data$nweeks)#
+} else {#
+	school <- chool_data$curves[,ibase]#
+}#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting - set ibase to the base you want to plot #
+ibase = 11#
+if (ibase > school_data$nbase) {#
+	school <- rep(NA,school_data$nweeks)#
+} else {#
+	school <- chool_data$curves[,ibase]#
+}#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school)
+source(paste(path.to.febris,"R/util.febris.R",sep=""))
+# for single base plotting - set ibase to the base you want to plot #
+ibase = 11#
+if (ibase > school_data$nbase) {#
+	school <- rep(NA,school_data$nweeks)#
+} else {#
+	school <- chool_data$curves[,ibase]#
+}#
+plot.base(zipname = epi_data$zipname[ibase],week=epi_data$week, epi=epi_data$curves[,ibase],sh=sh_data$curves[,ibase],school=school)
+require(pmedds.core)
+help(pmedds.core)
+require(pmedds.core)
+help(pmedds.core)
+require(pmedds.core)
+help(pmedds.core)
+q()
+require(pmedds.cpre)
+require(pmedds.core)
+help(pmedds.core)
+require(pmedds.core)
+help(pmedds.core)
+require(pmedds.core)
+hlep(pmedds.core)
+help(pmedds.core)
+require(pmedds.core)
+help(pmedds.core)
+q()
+require(pmedds.core)
+help(pmedds.core)
+q()

@@ -1,0 +1,70 @@
+---
+title: "SIR model with demography"
+output: word_document
+---
+
+```{r cars}
+## SIR model with demography
+## It is the simple SIR epidemic without births or deaths
+
+## Parameters:
+# miu: Per captia death rate, and the population level birth rate;
+# beta: Product of contact rates and transmission probability;
+# gamma: Recovery Rate;
+# S: Proportion of the population that are susceptible;
+# I: Proportion of the population that are infectious;
+# R: Proportion of the population that are recovered.
+library(deSolve)
+
+SIR.demo = function(time, state, pars) {
+  with(as.list(c(state,pars)), {
+    dS = miu - (beta * S0 * I0) - (miu * S0)
+    dI = (beta * S0 * I0) - (gamma * I0) - (miu * I0)
+    dR = (gamma * I0) - (miu * R0)
+    return(list(c(dS,dI,dR)))
+  })
+}
+# condition 1
+yini = c(S0 = 0.1,I0 = 1e-4,R0 = 1-0.1-1e-4)
+pars = c(miu = 1/(70*365.0),beta = 520/365.0,gamma = 1/7)
+times = seq(0,60*365,by = 1)
+
+
+out = ode(func = SIR.demo, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model with demography",
+        lwd = 2, lty = 1, col = 2:4)
+legend(40,0.5,c("Susceptibles","Infecteds","Recovereds"),pch = 1, col = 2:4, bty = "n")
+
+# condition 2
+yini = c(S0 = 0.9,I0 = 1e-4,R0 = 1-0.9-1e-4)
+pars = c(miu = 1/(70*365.0),beta = 520/365.0,gamma = 1/7)
+times = seq(0,70,by = 1)
+
+
+out = ode(func = SIR.demo, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model with demography",
+        lwd = 2, lty = 1, col = 2:4)
+legend(40,0.5,c("Susceptibles","Infecteds","Recovereds"),pch = 1, col = 2:4, bty = "n")
+
+# condition 3
+yini = c(S0 = 0.9,I0 = 1e-4,R0 = 1-0.9-1e-4)
+pars = c(miu = 1/(70*365.0),beta = 520/365.0,gamma = 1/7)
+times = seq(0,60*365,by = 1)
+
+
+out = ode(func = SIR.demo, y = yini, parms = pars, times = times)
+out = as.data.frame(out)
+out$time = NULL
+
+matplot(times,out,type = "l", xlab = "Time(days)", ylab = "Susceptibles and Recovereds", main = "SIR Model with demography",
+        lwd = 2, lty = 1, col = 2:4)
+legend(15000,0.5,c("Susceptibles","Infecteds","Recovereds"),pch = 1, col = 2:4, bty = "n")
+
+```
+

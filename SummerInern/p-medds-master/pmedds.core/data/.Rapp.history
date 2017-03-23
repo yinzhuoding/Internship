@@ -1,0 +1,618 @@
+maxSml
+order(maxSml,decreasing=TRUE)
+dataSml
+i=1
+istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAllv2[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}
+maxSml
+dataSml
+order(max(dataSml),decreasing=TRUE)
+dataSml
+dataSml <-dataSml[,order(max(maxSml),decreasing=TRUE)]
+dataSml
+order(max(maxSml),decreasing=TRUE)
+istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAllv2[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]
+dataSml
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAllv2[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAllv2[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	cat(zipname[1:5],"\n")#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAllv2[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	cat(dataSml[,"X29207"],"\n")#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAllv2[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+rm(list=ls())#
+filename <- "/Users/michal/Dropbox/LEPR01 (1)/data/ILI-small-pandemic-TOP100-curves-by-zip5-v-2000-01-01-2011-12-31.csv"#
+dataAll <- read.csv(filename,header=TRUE,sep=",")#
+ncol <- dim(dataAll)[2]-3#
+for (izip in 1:ncol) {#
+	zipname <- names(dataAll)[(izip+3)]#
+	zipname <- substr(zipname,start=2,stop=10) #Remove the "X" in front of the MPZ#
+#
+	cat(zipname,sum(dataAll[,(izip+3)]),"\n")#
+}#
+#
+# just create a column with dates#
+dateRange <-as.Date(dataAll[,2])#
+x <-as.POSIXlt(dateRange)#
+# This gets the week number from the date with Monday being the begining of the week - which is just like our data is.#
+strftime(x,format="%W") #
+weekRange <- strftime(x,format="%W") #
+yearRange  <- strftime(x,format="%Y") #
+startIndex <- which(weekRange == "27")#
+endIndex  <- which(weekRange == "26")#
+#
+yearStart <- strftime(x[startIndex],format="%Y") #
+yearEnd   <- strftime(x[endIndex],format="%Y")#
+#
+colvec <- c("red","blue","green","cyan","magenta")#
+#
+#Order by cummulative value for the time period - plot only top 5#
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAll[istart:iend,4:103]#
+	dataSml <-dataSml[,order(colSums(dataSml),decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+zipname
+rm(list=ls())#
+filename <- "/Users/michal/Dropbox/LEPR01 (1)/data/ILI-small-pandemic-TOP100-curves-by-zip5-v-2000-01-01-2011-12-31.csv"#
+dataAll <- read.csv(filename,header=TRUE,sep=",")#
+ncol <- dim(dataAll)[2]-3#
+for (izip in 1:ncol) {#
+	zipname <- names(dataAll)[(izip+3)]#
+	zipname <- substr(zipname,start=2,stop=10) #Remove the "X" in front of the MPZ#
+#
+	cat(zipname,sum(dataAll[,(izip+3)]),"\n")#
+}#
+#
+# just create a column with dates#
+dateRange <-as.Date(dataAll[,2])#
+x <-as.POSIXlt(dateRange)#
+# This gets the week number from the date with Monday being the begining of the week - which is just like our data is.#
+strftime(x,format="%W") #
+weekRange <- strftime(x,format="%W") #
+yearRange  <- strftime(x,format="%Y") #
+startIndex <- which(weekRange == "27")#
+endIndex  <- which(weekRange == "26")#
+#
+yearStart <- strftime(x[startIndex],format="%Y") #
+yearEnd   <- strftime(x[endIndex],format="%Y")#
+#
+colvec <- c("red","blue","green","cyan","magenta")#
+#
+#Order by cummulative value for the time period - plot only top 5#
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAll[istart:iend,4:103]#
+	dataSml <-dataSml[,order(colSums(dataSml),decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("toright",zipname,col=colvec,lwd=1,bty="n")#
+}
+dim(dataAll)
+dataAll[,1]
+dataAll[,2]
+as.Date(dataAll[,2])
+rm(list=ls())#
+filename <- "/Users/michal/Dropbox/LEPR01 (1)/data/ILI-small-pandemic-TOP100-curves-by-zip5-v-2000-01-01-2011-12-31.csv"#
+dataAll <- read.csv(filename,header=TRUE,sep=",")#
+ncol <- dim(dataAll)[2]-3#
+for (izip in 1:ncol) {#
+	zipname <- names(dataAll)[(izip+3)]#
+	zipname <- substr(zipname,start=2,stop=10) #Remove the "X" in front of the MPZ#
+#
+	cat(zipname,sum(dataAll[,(izip+3)]),"\n")#
+}#
+#
+# just create a column with dates#
+dateRange <-as.Date(dataAll[,2])#
+x <-as.POSIXlt(dateRange)#
+# This gets the week number from the date with Monday being the begining of the week - which is just like our data is.#
+strftime(x,format="%W") #
+weekRange <- strftime(x,format="%W") #
+yearRange  <- strftime(x,format="%Y") #
+startIndex <- which(weekRange == "27")#
+endIndex  <- which(weekRange == "26")#
+#
+yearStart <- strftime(x[startIndex],format="%Y") #
+yearEnd   <- strftime(x[endIndex],format="%Y")#
+#
+colvec <- c("red","blue","green","cyan","magenta")#
+#
+#Order by cummulative value for the time period - plot only top 5#
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAll[istart:iend,4:103]#
+	dataSml <-dataSml[,order(colSums(dataSml),decreasing=TRUE)]#
+	ymax <- max(dataSml[,1:5])#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topright",zipname,col=colvec,lwd=1,bty="n")#
+}
+#Order by value at maximum - plot only top 5#
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAl[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+#Order by value at maximum - plot only top 5#
+par(mfcol=c(5,2))#
+#
+for (i in 1:10) {#
+	istart <-startIndex[i]#
+	iend   <- endIndex[(i+1)]#
+	nweeks <-iend-istart+1#
+	xlabel <- paste("FY ",yearStart[i]," - ",yearEnd[(i+1)],sep="")#
+	#For each time range order the columns by the sum for this time range#
+	dataSml <- dataAll[istart:iend,4:103]#
+	maxSml <- rep(0,ncol)#
+	for (izip in 1:ncol) {#
+	maxSml[izip] <- max(dataSml[,izip])	#
+	}#
+	dataSml <-dataSml[,order(maxSml,decreasing=TRUE)]#
+	ymax <- max(dataSml)#
+	zipname  <- names(dataSml)[1:5]#
+	zipname <- substr(zipname,start=2,stop=10)#
+	for (izip in 1:5) {#
+		if (izip == 1) plot(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab=xlabel,ylab="Incidence",col=colvec[izip],ylim=c(0,ymax))#
+		if (izip > 1)   lines(1:nweeks,dataSml[,izip],type="l",xaxt="n",xlab="",ylab="",col=colvec[izip])#
+	}#
+	axis(1,at=1:nweeks,label=weekRange[istart:iend])#
+	legend("topleft",zipname,col=colvec,lwd=1,bty="n")#
+}
+q()
+?library
+library()
+?INSTALL
+install.packages("Rcpp")
+library(febris)
+out <- .Fortran("test_skel",var1=as.double(var1),var2=as.double(var2),var3=as.double(var3))
+var1=10#
+var2=20#
+var3=1
+out <- .Fortran("test_skel",var1=as.double(var1),var2=as.double(var2),var3=as.double(var3))
+out
+x <-rep(0:1,c(10,20))
+x
+class(x)
+summary(x)
+y <- as.factor(x)
+class(y)
+summary(y)
+myx <-x
+class(myx) <-"myvector"
+class(myx)
+print.myvector <-function(x, ...) {#
+	cat("This is my vector:\n")#
+	cat(paste(x[1:5]), "...\n")#
+}
+x
+myx
+require("febris")
+test_skel(10,20)
+q()
+x <- seq(0,5,by=0.1)
+plot(besselJ(x,0))
+plot(besselJ(x,1))
+plot(besselJ(x,0))
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))#
+lines(x,sin(x)/x,type=l,col="black")
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))#
+lines(x,sin(x)/x,type="l",col="black")
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))#
+lines(x,(sin(x)/x),type="l",col="black")
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))#
+lines(x,(sin(x*180/pi)/x),type="l",col="black")
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))#
+lines(x,(sin(x*pi/180)/x),type="l",col="black")
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))#
+lines(x,besselJ(x,1),col="red")
+besselJ(2.0,0)
+besselJ(2.0,1)
+besselJ(2.0,0)
+sin(2.0)/2.0
+x <- seq(0,5,by=0.1)#
+plot(x,besselJ(x,0))
+x <- seq(0,5,by=0.01)#
+plot(x,besselJ(x,0),type="l")#
+lines(x,besselJ(x,1),col="red")
+range(besselJ(x,0))
+besselJ(2.405,0)
+besselJ(2.404,0)
+besselJ(2.4045,0)
+besselJ(2.4048,0)
+besselJ(2.4049,0)
+q()
+set.seed()
+help(set.seed)
+runif(1)
+set.seed(123456)
+runif(1)
+set.seed(123456)
+runif(1)
+help(runif)
+q()
+library(coda)
+help(effectvesize)
+help(effectivesize)
+help(effectiveSize)
+q()
+require(febris)
+var1=4
+var2=6
+dyn.load("test_skel.so")
+out <- .Fortran("test_skel",var1=as.double(var1),var2=as.double(var2),var3=as.double(var3))
+var3=999
+out <- .Fortran("test_skel",var1=as.double(var1),var2=as.double(var2),var3=as.double(var3))
+out
+rm(list=ls())
+require(febris)
+data(febris)
+rm(list=ls())
+require(febris)
+data(febris)
+help(data)
+data()
+try(data(package="febris"))
+data(package="febris")
+data(Npop-by-AFHSC-and-zip-top50,package="febris")
+data(paste("Npop-by-AFHSC-and-zip-top50",sep=""),package="febris")
+filenpop=paste("Npop-by-AFHSC-and-zip-top50",sep="")
+filenpop
+data(filenpop,package="febris")
+data(package="MASS")
+rm(list=ls())
+require(febris)
+data(package="febris")
+data(population,package="febris")
+population
+data(,package="MASS")
+data(package="MASS")
+data(population,package="febris")
+dim(population)
+cats
+data(cats,package="MASS")
+cats
+names(population)
+names(cats)
+summary(cats)
+cats
+man(cats)
+rm(list=ls())
+require(febris)
+data(package="febris")
+promt(population)
+prompt(population)
+promt(population)
+population
+data(population,package="febris")
+population
+prompt(population)
+getwd()
+rm(list=ls)
+rm(list=ls())
+require(febris)
+data(population,package="febris")
+population
+data(population)
+data(population)
+data(package="febris")
+data(package="MASS")
+promt(cata,"MASS")
+promt(cats,"MASS")
+prompt(cats,"MASS")
+prompt(cats)
+prompt("cats")
+man(prompt)
+help(prompt)
+names(cats)
+names(population)
+data(ILI-small-specific-humidity-by-zip5-2009-03-20-2010-06-28,package="febris")
+rm(list=ls())
+require(febris)
+data(package="febris")
+data(population,package="febris")
+population
+data(ILI.small.specific.humidity.by.zip5.20090320.20100628,package="febris")
+ILI.small.specific.humidity.by.zip5.20090320.20100628
+names(ILI.small.specific.humidity.by.zip5.20090320.20100628)
+ILI.small.specific.humidity.by.zip5.20090320.20100628$week
+filename <- "ILI.small.specific.humidity.by.zip5.20090320.20100628.csv"#
+data <- read.csv(filename,header=T,sep=",")
+getwd()
+setwd("/Users/michal/work/LEPR01/svn_pathogen/prototype/source/febris/data")#
+filename <- "ILI.small.specific.humidity.by.zip5.20090320.20100628.csv"#
+data <- read.csv(filename,header=T,sep=",")
+data
+help(save)
+setwd("/Users/michal/work/LEPR01/svn_pathogen/prototype/source/febris/data")#
+filename <- "ILI.small.specific.humidity.by.zip5.20090320.20100628.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+save(data,filename="ILI.small.specific.humidity.by.zip5.20090320.20100628.Rd")
+save(data,file="ILI.small.specific.humidity.by.zip5.20090320.20100628.Rd")
+filename <- "population.txt"#
+data <- read.table(filename)#
+save(data,file="population.Rd")
+data
+rm(list=ls())
+setwd("/Users/michal/work/LEPR01/svn_pathogen/prototype/source/febris/data")#
+filename <- "ILI.small.specific.humidity.by.zip5.20090320.20100628.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+save(data,file="ILI.small.specific.humidity.by.zip5.20090320.20100628.rda")#
+#
+filename <- "population.txt"#
+data <- read.table(filename)#
+save(data,file="population.rda")
+rm(list=ls())
+require(febris)
+data(package="febris")
+data(package="MASS")
+data(population,package="febris")
+population
+data(population)
+population
+febris
+data("population")
+population
+data(population,package="febris")
+rm(list=ls())
+require(febris)
+data(package="febris")
+data(population,package="febris")
+population
+names(population)
+help(data)
+setwd("/Users/michal/work/LEPR01/svn_pathogen/prototype/source/febris/data")#
+filename <- "ILI-small-specific-humidity-by-zip5-2009-03-20-2010-06-28.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI.small.specific.humidity.by.zip5.20090320.20100628.txt")
+rm(list=ls())
+require(febris)
+data(febris)
+data(package="febris")
+data(ILI.small.specific.humidity.by.zip5.20090320.20100628,package="febris")
+ILI.small.specific.humidity.by.zip5.20090320.20100628
+dim(ILI.small.specific.humidity.by.zip5.20090320.20100628)
+names(ILI.small.specific.humidity.by.zip5.20090320.20100628)
+prompt("ILI.small.specific.humidity.by.zip5.20090320.20100628")
+getwd()
+filename <- "ILI-small-pandemic-TOP100-curves-by-zip5-v-2000-01-01-2011-12-31.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-pandemic-TOP100-curves-by-zip5-v-2000-01-01-2011-12-31.txt")#
+#
+filename <- "ILI-small-pandemic-TOP100-curves-by-zip5-v-2009-03-15-2010-07-15-AGE1.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-pandemic-TOP100-curves-by-zip5-v-2009-03-15-2010-07-15-AGE1.txt")#
+#
+filename <- "ILI-small-pandemic-TOP100-curves-by-zip5-v-2009-03-15-2010-07-15-AGE2.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-pandemic-TOP100-curves-by-zip5-v-2009-03-15-2010-07-15-AGE2.txt")#
+#
+filename <- "ILI-small-pandemic-curves-by-zip5-2009-03-20-2010-06-28.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-pandemic-curves-by-zip5-2009-03-20-2010-06-28.txt")#
+#
+filename <- "ILI-small-school-closure-by-zip5-2000-01-03-2013-12-30.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-school-closure-by-zip5-2000-01-03-2013-12-30.txt")#
+#
+filename <- "ILI-small-specific-humidity-NOCONUS-2000-01-03-2011-12-26.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-specific-humidity-NOCONUS-2000-01-03-2011-12-26.txt")#
+#
+filename <- "ILI-small-specific-humidity-by-zip5-2000-01-03-2011-12-26.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-specific-humidity-by-zip5-2000-01-03-2011-12-26.txt")#
+#
+filename <- "ILI-small-specific-humidity-by-zip5-2000-01-03-2011-12-26.csv"#
+data <- read.csv(filename,header=T,sep=",")#
+write.table(data,file="ILI-small-specific-humidity-by-zip5-2000-01-03-2011-12-26.txt")
+rm(list=ls())
+ls
+ls()
+require(febris)
+data(package=febris)
+data(package="febris")
+data(ILI-small-pandemic-TOP100-curves-by-zip5-v-2000-01-01-2011-12-31,package="febris")
+rm(list=ls())
+data(package=febris)
+data(package="febris")
+data(ILI.small.pandemic.TOP100.curves.by.zip5.20000101.20111231,package="febris")
+ILI.small.pandemic.TOP100.curves.by.zip5.20000101.20111231
+prompt(ILI.small.pandemic.TOP100.curves.by.zip5.20000101.20111231)
+data(ILI.small.pandemic.TOP100.curves.by.zip5.20090315.20100715.AGE1,package="febris")
+ILI.small.pandemic.TOP100.curves.by.zip5.20090315.20100715.AGE1
+prompt(ILI.small.pandemic.TOP100.curves.by.zip5.20090315.20100715.AGE1)
+data(ILI.small.pandemic.TOP100.curves.by.zip5.20090315.20100715.AGE2,package="febris")
+ILI.small.pandemic.TOP100.curves.by.zip5.20090315.20100715.AGE2
+prompt(ILI.small.pandemic.TOP100.curves.by.zip5.20090315.20100715.AGE2)
+data(ILI.small.pandemic.curves.by.zip5.20090320.20100628,package="febris")
+ILI.small.pandemic.curves.by.zip5.20090320.20100628
+prompt(ILI.small.pandemic.curves.by.zip5.20090320.20100628)
+data(ILI.small.school.closure.by.zip5.20000103.20131230,package="febris")
+ILI.small.school.closure.by.zip5.20000103.20131230
+prompt(ILI.small.school.closure.by.zip5.20000103.20131230)
+data(ILI.small.specific.humidity.NOCONUS.20000103.20111226,package="febris")
+ILI.small.specific.humidity.NOCONUS.20000103.20111226
+prompt(ILI.small.specific.humidity.NOCONUS.20000103.20111226)
+data(ILI.small.specific.humidity.by.zip5.20000103.20111226,package="febris")
+ILI.small.specific.humidity.by.zip5.20000103.20111226
+prompt(ILI.small.specific.humidity.by.zip5.20000103.20111226)
+dim(ILI.small.specific.humidity.by.zip5.20000103.20111226)
+data(ILI.small.specific.humidity.by.zip5.20090320.20100628,package="febris")
+ILI.small.specific.humidity.by.zip5.20090320.20100628
+prompt(ILI.small.specific.humidity.by.zip5.20090320.20100628)
+q()

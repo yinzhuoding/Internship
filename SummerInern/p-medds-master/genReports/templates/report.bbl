@@ -1,0 +1,188 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{howe2008big}
+Howe D, Costanzo M, Fey P, Gojobori T, Hannick L, et~al. (2008) Big data: The
+  future of biocuration.
+\newblock Nature 455: 47--50.
+\bibAnnoteFile{howe2008big}
+
+\bibitem{hay2013big}
+Hay SI, George DB, Moyes CL, Brownstein JS (2013) Big data opportunities for
+  global infectious disease surveillance.
+\newblock PLoS medicine 10: e1001413.
+\bibAnnoteFile{hay2013big}
+
+\bibitem{heffernan2004syndromic}
+Heffernan R, Mostashari F, Das D, Karpati A, Kulldorff M, et~al. (2004)
+  Syndromic surveillance in public health practice, new york city.
+\newblock Emerging infectious diseases 10.
+\bibAnnoteFile{heffernan2004syndromic}
+
+\bibitem{CDC:2009um}
+for Disease~Control C, CDC P (2009) {Swine influenza A (H1N1) infection in two
+  children--Southern California, March-April 2009}.
+\newblock MMWR Morb Mortal Wkly Rep .
+\bibAnnoteFile{CDC:2009um}
+
+\bibitem{CDC:1997vy}
+for Disease~Control C, CDC P (1997) {Isolation of avian influenza A(H5N1)
+  viruses from humans--Hong Kong, May-December 1997.}
+\newblock MMWR Morb Mortal Wkly Rep .
+\bibAnnoteFile{CDC:1997vy}
+
+\bibitem{Gao:2013es}
+Gao R, Cao B, Hu Y, Feng Z, Wang D, et~al. (2013) {Human Infection with a Novel
+  Avian-Origin Influenza A (H7N9) Virus}.
+\newblock N Engl J Med .
+\bibAnnoteFile{Gao:2013es}
+
+\bibitem{Lipsitch:2011bb}
+Lipsitch M, Finelli L, Heffernan RT, Leung GM, Redd SC, et~al. (2011)
+  {Improving the evidence base for decision making during a pandemic: the
+  example of 2009 influenza A/H1N1.}
+\newblock Biosecur Bioterror .
+\bibAnnoteFile{Lipsitch:2011bb}
+
+\bibitem{Lipsitch:2009km}
+Lipsitch M, Riley S, Cauchemez S, Ghani AC, Ferguson NM (2009) {Managing and
+  reducing uncertainty in an emerging influenza pandemic.}
+\newblock N Engl J Med 361: 112--115.
+\bibAnnoteFile{Lipsitch:2009km}
+
+\bibitem{Wu:2006en}
+Wu JT, Riley S, Fraser C, Leung GM (2006) {Reducing the impact of the next
+  influenza pandemic using household-based public health interventions.}
+\newblock PLoS Med .
+\bibAnnoteFile{Wu:2006en}
+
+\bibitem{Newall:2010iv}
+Newall AT, Wood JG, Oudin N, MacIntyre CR (2010) {Cost-effectiveness of
+  pharmaceutical-based pandemic influenza mitigation strategies.}
+\newblock Emerging Infect Dis .
+\bibAnnoteFile{Newall:2010iv}
+
+\bibitem{Nichol:2006es}
+Nichol KL, Treanor JJ (2006) {Vaccines for Seasonal and Pandemic Influenza}.
+\newblock J INFECT DIS .
+\bibAnnoteFile{Nichol:2006es}
+
+\bibitem{Heesterbeek:2001tn}
+Heesterbeek JAP (2001) {A brief history of R0 and a recipe for its
+  calculation}.
+\newblock Acta Biotheor 50: 189--204.
+\bibAnnoteFile{Heesterbeek:2001tn}
+
+\bibitem{Fraser:2009ek}
+Fraser C, Donnelly CA, Cauchemez S, Hanage WP, van Kerkhove MD, et~al. (2009)
+  {Pandemic potential of a strain of influenza A (H1N1): early findings.}
+\newblock Science .
+\bibAnnoteFile{Fraser:2009ek}
+
+\bibitem{Mills:2004bw}
+Mills CE, Robins JM, Lipsitch M (2004) {Transmissibility of 1918 pandemic
+  influenza}.
+\newblock Nature 432: 904--906.
+\bibAnnoteFile{Mills:2004bw}
+
+\bibitem{vanKerkhove:2010bi}
+van Kerkhove MD, Asikainen T, Becker NG, Bjorge S, Desenclos JC, et~al. (2010)
+  {Studies needed to address public health challenges of the 2009 H1N1
+  influenza pandemic: insights from modeling.}
+\newblock PLoS Med 7: e1000275.
+\bibAnnoteFile{vanKerkhove:2010bi}
+
+\bibitem{Ferguson:2005gp}
+Ferguson NM, Cummings DAT, Cauchemez S, Fraser C, Riley S, et~al. (2005)
+  {Strategies for containing an emerging influenza pandemic in Southeast Asia.}
+\newblock Nature .
+\bibAnnoteFile{Ferguson:2005gp}
+
+\bibitem{Longini:2005ifa}
+Longini IM, Nizam A, Xu S, Ungchusak K, Hanshaoworakul W, et~al. (2005)
+  {Containing pandemic influenza at the source}.
+\newblock Science .
+\bibAnnoteFile{Longini:2005ifa}
+
+\bibitem{Riley:2011ia}
+Riley S, Kwok KO, Wu KM, Ning DY, Cowling BJ, et~al. (2011) {Epidemiological
+  characteristics of 2009 (H1N1) pandemic influenza based on paired sera from a
+  longitudinal community cohort study.}
+\newblock PLoS Med 8: e1000442.
+\bibAnnoteFile{Riley:2011ia}
+
+\bibitem{Olson:2005dn}
+Olson DR, Simonsen L, Edelson PJ, Morse SS (2005) {Epidemiological evidence of
+  an early wave of the 1918 influenza pandemic in New York City}.
+\newblock Proc Natl Acad Sci USA .
+\bibAnnoteFile{Olson:2005dn}
+
+\bibitem{VanKerkhove:2012gb}
+Van~Kerkhove MD, Riley S, Lipsitch M, Guan Y, Monto AS, et~al. (2012) {Comment
+  on "Seroevidence for H5N1 Influenza Infections in Humans: Meta-Analysis"}.
+\newblock Science .
+\bibAnnoteFile{VanKerkhove:2012gb}
+
+\bibitem{Morse:2007fk}
+Morse SS (2007) {The US pandemic influenza implementation plan at six months}.
+\newblock Nat Med .
+\bibAnnoteFile{Morse:2007fk}
+
+\bibitem{Reed:2013gf}
+Reed C, Biggerstaff M, Finelli L, Koonin LM, Beauvais D, et~al. (2013) {Novel
+  framework for assessing epidemiologic effects of influenza epidemics and
+  pandemics.}
+\newblock Emerging Infect Dis .
+\bibAnnoteFile{Reed:2013gf}
+
+\bibitem{WHO:2009fva}
+Organization WH (2009) {Mathematical modelling of the pandemic H1N1 2009.}
+\newblock Weekly epidemiological record .
+\bibAnnoteFile{WHO:2009fva}
+
+\bibitem{Riley:2013kz}
+Riley P, Ben-Nun M, Armenta R, Linker JA, Eick AA, et~al. (2013) {Multiple
+  estimates of transmissibility for the 2009 influenza pandemic based on
+  influenza-like-illness data from small US military populations.}
+\newblock PLoS Comput Biol .
+\bibAnnoteFile{Riley:2013kz}
+
+\bibitem{marsden2007code}
+Marsden-Haug N, Foster VB, Gould PL, Elbert E, Wang H, et~al. (2007) Code-based
+  syndromic surveillance for influenzalike illness by international
+  classification of diseases, ninth revision.
+\newblock Emerging infectious diseases 13: 207.
+\bibAnnoteFile{marsden2007code}
+
+\bibitem{gilks96a}
+Gilks W, Richardson S, Spiegelhalter D (1996) Markov Chain Monte Carlo in
+  Practice.
+\newblock Chapman and Hall/CRC Interdisciplinary Statistics Series. Chapman \&
+  Hall.
+\newblock \urlprefix\url{http://books.google.com/books?id=TRXrMWY\_i2IC}.
+\bibAnnoteFile{gilks96a}
+
+\bibitem{Fleming:2008in}
+Fleming DM, Elliot AJ (2008) {Lessons from 40 years' surveillance of influenza
+  in England and Wales.}
+\newblock Epidemiol Infect .
+\bibAnnoteFile{Fleming:2008in}
+
+\bibitem{Shaman:2012jq}
+Shaman J, Karspeck A (2012) {Forecasting seasonal outbreaks of influenza.}
+\newblock Proc Natl Acad Sci USA .
+\bibAnnoteFile{Shaman:2012jq}
+
+\end{thebibliography}
